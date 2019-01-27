@@ -1,5 +1,5 @@
 {
-  "name": "Node with Mysql 8",
+  "name": "mysql_nodejs",
   "version": "1.0.0",
   "description": "This is driver for create connection nodejs is msql for web development.",
   "main": "server.js",

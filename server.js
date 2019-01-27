@@ -1,6 +1,8 @@
 let express = require("express");
 let mysql = require("mysql");
 
+let install = require('./model/install');
+
 //Create App
 let app = express();
 
@@ -26,6 +28,8 @@ connection.connect(err => {
     console.log("Connection Successfull !");
   }
 });
+
+install(connection, app);
 
 //view in browser
 app.get("/", (req, res) => {
