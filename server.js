@@ -2,6 +2,7 @@ let express = require("express");
 let mysql = require("mysql");
 
 let install = require('./model/install');
+let queries = require('./model/queries');
 
 //Create App
 let app = express();
@@ -20,16 +21,14 @@ var connection = mysql.createConnection({
   database: "hyf"
 });
 
-connection.connect(err => {
-  if (err) {
-    console.log("Error is true: " + err);
-    connection.end();
-  } else {
-    console.log("Connection Successfull !");
-  }
-});
+connection.connect(err => err ? connection.end() : console.log("Connection Successfull"));
 
+
+
+// Only once fire ----->
 install(connection, app);
+// run queries
+queries(connection, app);
 
 //view in browser
 app.get("/", (req, res) => {
