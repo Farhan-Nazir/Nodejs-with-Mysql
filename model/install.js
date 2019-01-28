@@ -15,12 +15,12 @@ function install(connection, app) {
     );
     // create the country table
     connection.query(
-      "CREATE TABLE country (country_id INT NOT NULL AUTO_INCREMENT, country_name varchar(50) DEFAULT NULL,country_population varchar(50) DEFAULT NULL, region_id INT NOT NULL, PRIMARY KEY (country_id))",
+      "CREATE TABLE country (country_id INT NOT NULL AUTO_INCREMENT, country_name varchar(50) DEFAULT NULL,country_population DECIMAL(10.2) DEFAULT NULL, region_id INT NOT NULL, PRIMARY KEY (country_id))",
       error => (error ? error : console.log("Table country created !!"))
     );
     // create the city table
     connection.query(
-      "CREATE TABLE city (city_id INT NOT NULL AUTO_INCREMENT, city_name varchar(50) DEFAULT NULL,city_population varchar(50) DEFAULT NULL, country_id INT NOT NULL, PRIMARY KEY (city_id))",
+      "CREATE TABLE city (city_id INT NOT NULL AUTO_INCREMENT, city_name varchar(50) DEFAULT NULL,city_population DECIMAL(10.2) DEFAULT NULL, country_id INT NOT NULL, PRIMARY KEY (city_id))",
       error => (error ? error : console.log("Table city created !!"))
     );
   });

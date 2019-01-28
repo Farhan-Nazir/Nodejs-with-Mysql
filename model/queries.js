@@ -14,6 +14,8 @@ function queries(con, app) {
         }
       }
     );
+
+    con.query("SELECT country.country_name, region.region_name from country JOIN region ON country.region_id = region.region_id")
   });
 }
 
